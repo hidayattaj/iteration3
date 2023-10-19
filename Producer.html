@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Producer</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="menu.css">
+    <link rel="stylesheet" type="text/css" href="Producer.css">
+</head>
+<body>
+
+	<header>
+
+		<div class="header-top">
+      <a href="Index.html"><img src="logo.png" alt="Station Name"></a>
+      <button class="play"><img src="playbutton.png"></button>
+    </div>
+
+	    <nav>
+	      <ul>
+	        <li><a href="#">Shows</a></li>
+	        <li><a href="#">News</a></li>
+	        <li class="dropdown">
+	          <a href="#">DJs</a>
+	            <ul class="dropdown-content">
+	              <li><a href="#">Search Playlist</a></li>
+	              <li><a href="#">Time Slots</a></li>
+	              <li><a href="#">Current Playlist</a></li>
+	            </ul>
+	        </li>
+	        <li><a href="#">Producers</a></li>
+	      </ul>
+	    </nav>
+
+	</header>
+
+  <!--=============================================================================================-->
+  <!--=============================================================================================-->
+
+
+
+
+
+  <div class="container">
+    <p>Select DJ:</p>
+    <select class="djSelector">
+
+      <!-- Attached event handler using addEventListener. -->
+      <option class="dj1">Olivia Bennett</option>
+      <option class="dj2">Liam Anderson</option>
+      <option class="dj3">Sophia Ramirez</option>
+      <option class="dj4">Ethan Mitchell</option>
+      <option class="dj5">Ava Turner</option>
+    </select>
+
+    <!-- Attached event handler using addEventListener. -->
+    <button class="select-btn">Select</button>
+
+    <hr>
+
+    <p>Search Songs:</p>
+    <!-- I used keydown event to listen for Enter key. -->
+    <input type="text" class="songSearch" placeholder="Enter song name" onkeydown="song_entered(event)">
+    <button class="search-btn" onclick="song_searched()">Search</button>
+        
+    <hr>
+
+    <p>Select Time Slot:</p>
+    <div class="time-slot-container">
+
+      <!-- Attached event handler directly into the HTML element. -->
+      <button class="btn1" onclick='alert("9:00 AM")'>9:00 AM</button>
+
+      <!-- Attached event handler using the addEventListener method. Check the code below in the script section. -->
+      <button class="btn2">10:00 AM</button>
+
+      <button class="btn3">11:00 AM</button>
+      <button class="btn4">12:00 PM</button>
+      <button class="btn5">01:00 PM</button>
+      <button class="btn6">02:00 PM</button>
+      <button class="btn7">03:00 PM</button>
+      <button class="btn8">04:00 PM</button>
+      <button class="btn9">05:00 PM</button>
+      <button class="btn10">06:00 PM</button>
+      <button class="btn11">07:00 PM</button>
+      <button class="btn12">08:00 PM</button>
+      <button class="btn13">09:00 PM</button>
+    </div>
+
+    <hr>
+
+    <!-- It will show the current DJ selection. -->
+    <p class="show-dj"></p>
+
+    <!-- It will show the current song searched.  -->
+    <p class="show-song"></p>
+
+
+    <p class="hello"></p>
+
+
+  </div>
+
+
+  <script>
+
+      let dj = 0;
+      let song = 0;
+
+      // Attached event handler using the addEventListener method
+      document.querySelector(".btn2").addEventListener("click",btn_clicked);
+      function btn_clicked() { alert("10:00 AM"); }
+
+      // Adds event listener to the following buttons and calls the functions below.
+      document.querySelector(".dj1").addEventListener("click",dj1);
+      document.querySelector(".dj2").addEventListener("click",dj2);
+      document.querySelector(".dj3").addEventListener("click",dj3);
+      document.querySelector(".dj4").addEventListener("click",dj4);
+      document.querySelector(".dj5").addEventListener("click",dj5);
+
+      function dj1() {
+        dj = document.querySelector(".dj1").innerText;
+      }
+      function dj2() {
+        dj = document.querySelector(".dj2").innerText;
+      }
+      function dj3() {
+        dj = document.querySelector(".dj3").innerText;
+      }
+      function dj4() {
+        dj = document.querySelector(".dj4").innerText;
+      }
+      function dj5() {
+        dj = document.querySelector(".dj5").innerText;
+      }
+
+      // It will display the current DJ selection.
+      document.querySelector(".select-btn").addEventListener("click",dj_selected);
+      function dj_selected() {
+
+        // Changes the background color of the button.
+        document.querySelector(".select-btn").style["background-color"] = "red";
+
+        // Changes the text inside the html element.
+        document.querySelector(".select-btn").innerText = "SELECTED";
+
+        // Displays the currently selected DJ inside the body of html.
+        document.querySelector(".show-dj").innerText = `DJ selected: ${dj}`;
+      }
+
+
+      // It will display a pop-up showing that "Enter" key is used to search a song.
+      function song_entered(event) {
+        if (event.key === 'Enter') {
+          alert("Song is entered using 'Enter' key.");
+        }
+      }
+
+      // It will display the current song searched inside the html.
+      function song_searched() {
+
+        // Gets the value inside the search field.
+        song = document.querySelector(".songSearch").value;
+
+        // Display error if the search field is empty.
+        if (song === "") { alert("Search field cannot be empty."); }
+
+        // Display error if search field contains a number.
+        if (/[0-9]/.test(song)) { alert("Song cannot be a number."); }
+
+        document.querySelector(".show-song").innerText = `Song searched: ${song}`;
+
+
+        // Displays welcome text in the page.
+        const welcome = setTimeout(display_hello, 300);
+        function display_hello() {
+          document.querySelector(".hello").innerText = "Welcome to producer's page!"
+        }
+
+
+      }
+
+      
+      // Creating objects
+      let disc_jockey = {
+        name: "Jaden",
+        occupation: "DJ",
+        age: 26
+      };
+
+      // Accessing object property
+      console.log(disc_jockey.age);
+
+      // Modifying property
+      disc_jockey.age = 50;
+      
+      // Add a new property
+      disc_jockey.salary = 50000;
+
+
+
+
+  </script>
+
+
+  <!--=============================================================================================-->
+  <!--=============================================================================================-->
+
+	<footer>
+		<nav>
+      <ul>
+        <li><a href="#">Rock</a></li>
+        <li><a href="#">Pop</a></li>
+        <li><a href="#">Hip-Hop</a></li>
+        <li><a href="#">Latin</a></li>
+        <li><a href="#">Jazz</a></li>
+        <li><a href="#">World</a></li>
+        <li><a href="#">Classical</a></li>
+        <li><a href="#">Electronic</a></li>
+      </ul>
+    </nav>
+	</footer>
+
+</body>
+</html>

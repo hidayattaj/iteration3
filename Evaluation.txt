@@ -1,0 +1,34 @@
+1. Inline Event Handler Approach
+	I used the inline event handler approach when selecting a certain timeslot button.
+	I used onclick event inside the html element. After clicking the button an alert will pop-up displaying the current timeslot selected.
+
+2. Listener Approach
+	I attached an event handler using the addEventListener() method to a timeslot button. First I selected and added an event listener to an element using document.querySelector().addEventListener(). On clicking a specific button, then it will call a user defined function which displays a pop-up showing that a button is selected.
+
+3. Event Types
+	I used "keydown" event in the search box to show "Enter" key is pressed. It will also works as submit button expanding the functionality of both using mouse and keyboard. Another event I used is "click" for the buttons. It displays that what button is clicked.
+
+4. Validating Forms
+	If the search box is empty then, it will display error. Also, if the search box contains numbers then it will display error. So far, I have 	used only two conditions using if and else statments. I will add more functionality and validation into the forms.
+
+5. Modifying a DOM Element
+	I changed the background color of select button using javascript .style. I also added paragraph element in the body of html which will 	display what DJ I have selected and what song is searched. You can find the code in the script section. I also changed the text of select button to SELECTED using innerText property.
+
+6. Object Properties
+	
+
+7. Window Object
+	I used "alert" in many places, for example when a button is clicked, search field is submitted, they will call alert() to display a message in the browser. I added setTimeout() to show "Welcome to producer's page" after some time.
+
+
+Variables = I have created couple of variables in the program to get the element from document.querySelector() for easy use in future.
+
+Comparison Operators = I have used "===" and "==" in the code to check if a string is equal to a number or another string. I implement it inside the search field.
+
+Logical Operators = I implemented "&&" and "!" inside functions to check for certain conditions.
+
+Conditionals = I have used if and else statement in the search field for validating correct data.
+
+Loops = I have implemented for loop inside getElement() function to loop through each element and get its value.
+
+Functions = I have used functions throughtout in the javascript script section to keep calling same functions instead of writing long lines of code.
